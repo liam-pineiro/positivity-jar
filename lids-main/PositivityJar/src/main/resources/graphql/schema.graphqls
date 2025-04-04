@@ -1,0 +1,40 @@
+type User {
+    id: ID!
+    username: String!
+    email: String!
+    jars: [Jar]
+    posts: [Post]  
+}
+type Query {
+    getUser(id: ID!): User
+    getAllUsers: [User]
+    getJar(id: ID!): Jar
+    getAllJars: [Jar]
+    getPost(id: ID!): Post
+    getAllPosts: [Post]
+
+}
+
+type Mutation {
+    createUser( username: String!, email: String!, password: String!): User
+    signIn(email: String!, password: String!): SignInResponse
+    createJar(id: ID!, title: Title!, owner: User!)
+    createPost(content: String!, authorId: ID!): Post
+}
+type Jar{
+    id: ID!
+    title: Title!
+    owner: User!
+}
+
+type Post {
+    id: ID!
+    content: String!
+    author: User!
+}
+
+
+type SignInResponse {
+    message: String!
+    userId: ID
+}

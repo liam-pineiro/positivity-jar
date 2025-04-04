@@ -1,0 +1,16 @@
+//here is an example of how to add a folder to a git repository
+
+***Note, the maximum push size is 100mb per file or folder.
+    If you have exceed this limit, considering paring down code or to sub-folders.
+
+// 1    copy already created folder and either move or copy it to local clone repository
+// 2    return to vsc and in your project tree of repository you will see the newly added file/folder
+// 3    ignore this line please.
+// 4    return to source control
+// 5    under Changes, locate your file or folder and click '+' to stage your changes
+//      a new drop down for Staged Changes should appear with your file/folder
+// 6    write a commit message in the message box
+// 7    click commit
+// 8   click source control ellipses '...' & select push
+// 9    this should be it!
+// 10   * add to this document if you have anything helpful to add for our team!

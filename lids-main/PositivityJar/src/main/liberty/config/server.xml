@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="new server">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>appSecurity-1.0</feature>
+        <feature>jsonb-1.0</feature>       
+        <feature>jakartaee-8.0</feature>
+        <feature>mpGraphQL-1.0</feature>
+        <feature>jdbc-4.2</feature>
+    </featureManager>
+
+   
+
+     <library id="mysql-lib">
+        <file name= "${server.config.dir}/mysql-connector-j-9.2.0.jar"/>
+         </library>
+
+    <dataSource id="mysql-datasource" jndiName="jdbc/mysql" type="javax.sql.ConnectionPoolDataSource">
+        <jdbcDriver libraryRef="mysql-lib" javax.sql.ConnectionPoolDataSource="com.mysql.cj.jdbc.MysqlConnectionPoolDataSource"/>
+        <properties URL="jdbc:mysql://localhost:3306/positivityJar" user="root" password="root"/>
+    </dataSource>
+
+    <basicRegistry id="BasicRegistry">
+        <user name="admin" password="admin"/>
+        <user name="user" password="user"/>    
+    </basicRegistry>
+    
+    <orb id="defaultOrb" />
+    
+     <httpEndpoint host="localhost" id="defaultHttpEndpoint"
+                  httpPort="9080"
+                  httpsPort="9443" />
+
+    <!-- Automatically expand WAR files and EAR files -->
+    <applicationManager autoExpand="true"/>
+
+    <!-- Configures the application on a specified context root -->
+    <webApplication contextRoot="/positivityJar"  location="positivityJar.war" />
+
+    <!-- Default SSL configuration enables trust for default certificates from the Java runtime -->
+    <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
+</server>
